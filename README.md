@@ -27,6 +27,21 @@
 🎯 Seeking Software Developer Opportunities
 
 ---
+---
+
+# 🌐 My Portfolio
+
+<div align="center">
+
+### 🚀 Check Out My Portfolio Website
+
+<a href="https://lokiknok.github.io/Portfolio/" target="_blank">
+  <img src="https://img.shields.io/badge/🌐_Visit_My_Portfolio-00C9FF?style=for-the-badge&logo=google-chrome&logoColor=white" />
+</a>
+
+</div>
+
+---
 
 # 🚀 Tech Stack
 
