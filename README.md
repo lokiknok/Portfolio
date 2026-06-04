@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=250&color=gradient&text=Lohith%20V&fontSize=70&fontAlignY=40&animation=fadeIn&desc=MERN%20Stack%20Developer%20%7C%20Java%20Developer&descAlignY=60" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:141E30,100:243B55&height=250&text=Lohith%20V&fontColor=ffffff&fontSize=70&animation=fadeIn&desc=Software%20Developer%20%7C%20MERN%20Stack%20%7C%20Java&descSize=20" width="100%"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=700&size=28&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=800&lines=🚀+MERN+Stack+Developer;☕+Java+Developer;💻+Full+Stack+Learner;🔥+Building+Awesome+Projects;📚+Always+Learning+New+Things" />
+<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=25&duration=3000&pause=1000&color=4FC3F7&center=true&vCenter=true&width=900&lines=Software+Developer;MERN+Stack+Developer;Java+Developer;Open+Source+Learner;Building+Real-World+Projects" />
 
 </div>
 
