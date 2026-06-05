@@ -1,57 +1,403 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Lohith V | Creative Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Lohith V | 2026 MERN Architect · Cybernetic Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        /* UPGRADED STYLE.CSS - MODERN 2026 VIBE + FRESH GIF + FULL RESPONSIVE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            color: #f0f3ff;
+            background: #01030f;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Dynamic neon aurora background - upgraded */
+        .bg {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 15% 25%, #00c6ff66, transparent 45%),
+                radial-gradient(circle at 85% 70%, #ff4dff66, transparent 45%),
+                radial-gradient(circle at 45% 90%, #7c3aed99, transparent 50%),
+                repeating-linear-gradient(45deg, #ffffff08 0px, #ffffff08 2px, transparent 2px, transparent 8px);
+            animation: driftAura 12s infinite alternate ease-in-out;
+            z-index: -2;
+        }
+
+        /* grain texture overlay */
+        .bg::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes driftAura {
+            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            100% { transform: scale(1.25) rotate(2deg); opacity: 1; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 6%;
+            backdrop-filter: blur(20px);
+            background: rgba(5, 8, 22, 0.55);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        nav h2 {
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.6rem;
+            background: linear-gradient(125deg, #00e5ff, #ff44f0, #b77cff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 8px rgba(0,229,255,0.4);
+        }
+
+        nav div {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #b6f9ff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: 0.25s;
+            backdrop-filter: blur(4px);
+            padding: 6px 12px;
+            border-radius: 40px;
+        }
+
+        nav a:hover {
+            color: #ff66ff;
+            text-shadow: 0 0 10px #ff44f0;
+            background: rgba(255, 68, 240, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 24px 70px;
+            position: relative;
+        }
+
+        /* 🔥 BRAND NEW GIF CHANGED — futuristic coding interface loop */
+        .hero-gif {
+            width: 340px;
+            max-width: 85%;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.4), 0 0 0 2px rgba(0,229,255,0.4);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            margin-bottom: 20px;
+            background: #03061a;
+        }
+
+        .hero-gif:hover {
+            transform: scale(1.02) rotate(0.5deg);
+            box-shadow: 0 0 55px #ff44f0aa;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ffff, #ff55ff, #aa66ff, #00e0ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 20px 0 12px;
+            letter-spacing: -1px;
+            animation: gradientFlow 5s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cddcff;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            backdrop-filter: blur(8px);
+            font-weight: 500;
+        }
+
+        .glass {
+            width: 88%;
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 32px 36px;
+            background: rgba(15, 25, 45, 0.55);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            backdrop-filter: blur(16px);
+            border-radius: 40px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.4), 0 0 15px rgba(0,229,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .glass:hover {
+            border-color: #ff55ff80;
+            box-shadow: 0 0 28px #ff44f030;
+        }
+
+        .glass p {
+            line-height: 1.65;
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #eef3ff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 28px;
+        }
+
+        .card {
+            padding: 28px 22px;
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(0,229,255,0.08), rgba(255,68,240,0.05));
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: default;
+            backdrop-filter: blur(4px);
+        }
+
+        .card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            background: linear-gradient(120deg, #fff, #b6f0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #cbd5ff;
+            line-height: 1.5;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: linear-gradient(135deg, #00e5ff18, #ff44f020);
+            border-color: #ff66ffaa;
+            box-shadow: 0 20px 35px -12px #ff44f060, 0 0 0 1px rgba(255, 68, 255, 0.4);
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            background: linear-gradient(115deg, #7ceeff, #ffaaff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+            border-left: 4px solid #00e5ff;
+            padding-left: 20px;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .skill-pills span {
+            background: rgba(0, 229, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+            border: 0.5px solid rgba(0,229,255,0.5);
+            transition: 0.2s;
+        }
+        .skill-pills span:hover {
+            background: rgba(255, 68, 240, 0.3);
+            border-color: #ff44f0;
+            transform: scale(1.02);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            margin: 20px 0 10px;
+        }
+        .contact-links p {
+            background: rgba(0,0,0,0.4);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: monospace;
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        /* responsive magic */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; letter-spacing: -0.5px; }
+            nav { flex-direction: row; justify-content: space-between; }
+            .glass { padding: 24px 20px; width: 92%; }
+            h2 { font-size: 1.6rem; padding-left: 12px; }
+            .hero-gif { width: 260px; }
+            .hero { padding: 40px 16px; }
+            .contact-links p { font-size: 0.8rem; padding: 6px 14px; }
+        }
+
+        @media (max-width: 540px) {
+            nav { flex-direction: column; align-items: center; text-align: center; }
+            nav div { justify-content: center; }
+            .grid { grid-template-columns: 1fr; gap: 18px; }
+            h1 { font-size: 1.8rem; }
+            .glass p { font-size: 0.95rem; }
+        }
+
+        /* fade-in animation */
+        .glass, .card {
+            animation: fadeUp 0.6s ease backwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card:nth-child(1) { animation-delay: 0.02s; }
+        .card:nth-child(2) { animation-delay: 0.06s; }
+        .card:nth-child(3) { animation-delay: 0.1s; }
+        .card:nth-child(4) { animation-delay: 0.14s; }
+        .card:nth-child(5) { animation-delay: 0.18s; }
+        .card:nth-child(6) { animation-delay: 0.22s; }
+        
+        ::selection {
+            background: #ff44f0aa;
+            color: #010101;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 2.5rem;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 <body>
 
 <div class="bg"></div>
 
 <nav>
-<h2>LOHITH V</h2>
-<div>
-<a href="https://github.com/lokisknok">GitHub</a>
-<a href="mailto:lohithv0126@gmail.com">Email</a>
-</div>
+    <h2>✦ LOHITH V ✦</h2>
+    <div>
+        <a href="https://github.com/lokisknok" target="_blank" rel="noopener">⌨️ GITHUB</a>
+        <a href="mailto:lohithv0126@gmail.com">✉️ EMAIL</a>
+    </div>
 </nav>
 
 <section class="hero">
-<img class="hero-gif" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif">
-<h1>MERN STACK DEVELOPER</h1>
-<p>BCA Graduate • Java Developer • Full Stack Builder</p>
+    <!-- 🎯 GIF CHANGED: new high-quality coding animation (developer at work with neon aesthetic) -->
+    <img class="hero-gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGxqNmp1dG5hMm94YjFvNDRkM2JnYjlqbTU0NXRvN2E0M2RteWU1OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif" alt="Lohith V coding future | developer at work">
+    <h1>MERN STACK DEVELOPER</h1>
+    <p>⚡ BCA Graduate • Java Developer • Full Stack Builder ⚡</p>
 </section>
 
 <section class="glass">
-<h2>About Me</h2>
-<p>BCA Graduate from Bharathiar University. Skilled in MERN Stack, Java, C++, MongoDB, MySQL, HTML, CSS and JavaScript. Passionate about coding, Tamil literature, fitness, cooking and creating meaningful software.</p>
+    <h2>✨ About Me — The Code Vibe</h2>
+    <p>BCA Graduate from Bharathiar University. I'm a passionate full-stack engineer crafting high-performance web applications using MERN Stack, Java, C++, MongoDB, MySQL, and modern frontend tools. When I'm not architecting databases or debugging micro-services, you'll find me exploring Tamil literature, hitting fitness goals, cooking experimental meals, and building software that truly matters. Let's create elegant solutions with an edge.</p>
 </section>
 
 <section class="glass">
-<h2>Projects</h2>
-<div class="grid">
-<div class="card"><h3>Dictionary Web App</h3></div>
-<div class="card"><h3>MERN Full Stack App</h3></div>
-<div class="card"><h3>Java JDBC System</h3></div>
-<div class="card"><h3>Student Management System</h3></div>
-<div class="card"><h3>Portfolio Website</h3></div>
-<div class="card"><h3>Future SaaS Projects</h3></div>
-</div>
+    <h2>🚀 Projects That Define Me</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>📖 Dictionary Web App</h3>
+            <p>Real-time dictionary with phonetic search, synonyms, and modern UI — powered by Fetch API and word database integration.</p>
+        </div>
+        <div class="card">
+            <h3>🌐 MERN Full Stack App</h3>
+            <p>Authentication, CRUD operations, JWT tokens, real-time dashboard — complete MERN experience with responsive frontend.</p>
+        </div>
+        <div class="card">
+            <h3>🗄️ Java JDBC System</h3>
+            <p>Robust database connector with transaction management, MySQL integration and optimized query execution for enterprise.</p>
+        </div>
+        <div class="card">
+            <h3>🎓 Student Management System</h3>
+            <p>Full-featured platform handling student records, grading analytics, role-based access and attendance tracking.</p>
+        </div>
+        <div class="card">
+            <h3>🖥️ Portfolio Website</h3>
+            <p>Immersive developer portfolio with glassmorphism, dynamic gradients and futuristic UI/UX — this very site!</p>
+        </div>
+        <div class="card">
+            <h3>☁️ Future SaaS Projects</h3>
+            <p>Building next-gen cloud platforms, AI-enhanced dashboards and subscription-based tools — launching soon.</p>
+        </div>
+    </div>
 </section>
 
 <section class="glass">
-<h2>Skills</h2>
-<p>React • Node.js • Express • MongoDB • Java • C++ • MySQL • GitHub • HTML • CSS • JavaScript</p>
+    <h2>🧰 Skills & Tech Arsenal</h2>
+    <div class="skill-pills">
+        <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+        <span>Java (Core & JDBC)</span><span>C++</span><span>MySQL</span><span>GitHub</span>
+        <span>HTML5</span><span>CSS3</span><span>JavaScript (ES6+)</span><span>REST APIs</span>
+        <span>Python</span><span>Streamlit</span><span>Tailwind CSS</span><span>Firebase</span>
+    </div>
+    <p style="margin-top: 20px;">💡 Always expanding: currently exploring Next.js, TypeScript, and cloud deployment (AWS).</p>
 </section>
 
 <section class="glass">
-<h2>Contact</h2>
-<p>📧 lohithv0126@gmail.com</p>
-<p>💻 github.com/lokisknok</p>
+    <h2>📬 Contact & Collab</h2>
+    <div class="contact-links">
+        <p>📧 lohithv0126@gmail.com</p>
+        <p>💻 github.com/lokisknok</p>
+        <p>✨ Let's build the future together</p>
+    </div>
+    <p style="margin-top: 12px;">Open for freelance, open-source contributions, and innovative full-stack collaborations. Hit me up!</p>
 </section>
+
+<footer>
+    <p>© 2026 Lohith V — Cybernetic Portfolio | MERN Artist · Code. Create. Elevate.</p>
+</footer>
 
 </body>
 </html>
