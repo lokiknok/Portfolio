@@ -131,9 +131,9 @@
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=lokisknok&show_icons=true&theme=tokyonight&hide_border=true"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=lokiknok&show_icons=true&theme=tokyonight&hide_border=true"/>
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lokisknok&layout=compact&theme=tokyonight&hide_border=true"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lokiknok&layout=compact&theme=tokyonight&hide_border=true"/>
 
 </div>
 
@@ -143,7 +143,7 @@
 
 <div align="center">
 
-<img src="https://github-readme-streak-stats.herokuapp.com?user=lokisknok&theme=tokyonight&hide_border=true"/>
+<img src="https://github-readme-streak-stats.herokuapp.com?user=lokiknok&theme=tokyonight&hide_border=true"/>
 
 </div>
 
@@ -153,7 +153,7 @@
 
 <div align="center">
 
-<img src="https://github-profile-trophy.vercel.app/?username=lokisknok&theme=tokyonight&row=1&column=7&no-frame=true"/>
+<img src="https://github-profile-trophy.vercel.app/?username=lokiknok&theme=tokyonight&row=1&column=7&no-frame=true"/>
 
 </div>
 
@@ -167,7 +167,7 @@
 <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
 
-<a href="https://github.com/lokisknok">
+<a href="https://github.com/lokiknok">
 <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
 </a>
 
