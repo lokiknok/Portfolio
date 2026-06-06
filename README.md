@@ -185,3 +185,15 @@
 </div>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=gradient"/>
+## 🍪 The Profile Cookie Jar
+
+Have a look around! Feel free to grab a cookie or leave one for the next developer.
+
+<p align="left">
+  <a href="https://github.com/lokiknok/lokiknok/issues/new?title=Cookie%3A+Add+Cookie&body=I+left+a+cookie+for+Lohith!">
+    <img src="https://img.shields.io/badge/🍪_Give_Lohith_a_Cookie-FFB300?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/lokiknok/lokiknok/issues/new?title=Cookie%3A+Eat+Cookie&body=I+ate+a+cookie+from+the+jar!">
+    <img src="https://img.shields.io/badge/🥛_Take_a_Cookie-E0E0E0?style=for-the-badge" />
+  </a>
+</p>
