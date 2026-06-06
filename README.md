@@ -197,3 +197,12 @@ Have a look around! Feel free to grab a cookie or leave one for the next develop
     <img src="https://img.shields.io/badge/🥛_Take_a_Cookie-E0E0E0?style=for-the-badge" />
   </a>
 </p>
+---
+
+# 💬 Dev Quote of the Day
+
+<div align="center">
+
+<img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
+
+</div>
