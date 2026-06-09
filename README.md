@@ -6,7 +6,6 @@
 
 </div>
 
----
 
 # 🌈 About Me
 
@@ -25,8 +24,6 @@
 🍳 Cooking Enthusiast
 
 🎯 Seeking Software Developer Opportunities
-
----
 ---
 
 # 🌐 My Portfolio
