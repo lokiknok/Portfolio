@@ -3,401 +3,1498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Lohith V | 2026 MERN Architect · Cybernetic Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <title>LOHITH V | 2026 Cybernetic AI Factory Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* UPGRADED STYLE.CSS - MODERN 2026 VIBE + FRESH GIF + FULL RESPONSIVE */
+        /* ==========================================================================
+           1. MASTER DESIGN SYSTEM VARIABLES
+           ========================================================================== */
+        :root {
+            --bg-base: #050816;
+            --primary-orange: #ff7a18;
+            --secondary-orange: #ffb347;
+            --cyan: #00eaff;
+            --purple: #8b5cf6;
+            --white: #ffffff;
+            --black-chrome: #0d111a;
+            --glass-panel: rgba(13, 17, 26, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --orange-glow-30: rgba(255, 122, 24, 0.3);
+            --orange-glow-10: rgba(255, 122, 24, 0.1);
+            --cyan-glow-20: rgba(0, 234, 255, 0.2);
+            
+            --font-head: 'Orbitron', sans-serif;
+            --font-sub: 'Rajdhani', sans-serif;
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        /* ==========================================================================
+           2. CORE ENGINE RESET & BASE LAYOUT
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        body {
-            font-family: 'Inter', 'Poppins', sans-serif;
-            color: #f0f3ff;
-            background: #01030f;
+        html, body {
+            background-color: var(--bg-base);
+            color: var(--white);
+            font-family: var(--font-body);
             overflow-x: hidden;
             scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-orange) var(--bg-base);
         }
 
-        /* Dynamic neon aurora background - upgraded */
-        .bg {
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-orange);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--primary-orange);
+        }
+
+        /* Ambient Systems */
+        #ambient-grid {
             position: fixed;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 15% 25%, #00c6ff66, transparent 45%),
-                radial-gradient(circle at 85% 70%, #ff4dff66, transparent 45%),
-                radial-gradient(circle at 45% 90%, #7c3aed99, transparent 50%),
-                repeating-linear-gradient(45deg, #ffffff08 0px, #ffffff08 2px, transparent 2px, transparent 8px);
-            animation: driftAura 12s infinite alternate ease-in-out;
-            z-index: -2;
-        }
-
-        /* grain texture overlay */
-        .bg::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDMiLz48L3N2Zz4=');
-            opacity: 0.12;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @keyframes driftAura {
-            0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-            100% { transform: scale(1.25) rotate(2deg); opacity: 1; }
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 6%;
-            backdrop-filter: blur(20px);
-            background: rgba(5, 8, 22, 0.55);
-            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            position: sticky;
             top: 0;
-            z-index: 100;
-            flex-wrap: wrap;
-            gap: 12px;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(255, 122, 24, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 122, 24, 0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        nav h2 {
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            font-size: 1.6rem;
-            background: linear-gradient(125deg, #00e5ff, #ff44f0, #b77cff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 8px rgba(0,229,255,0.4);
+        #ambient-grid::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 20%, var(--bg-base) 85%);
         }
 
-        nav div {
+        #systems-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Cinematic Holographic Scanlines */
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 99999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* ==========================================================================
+           3. MASTER TIMELINE CONDUIT SYSTEM
+           ========================================================================== */
+        #master-conduit-container {
+            position: fixed;
+            top: 0;
+            left: 10%;
+            width: 16px;
+            height: 100vh;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .conduit-pipe {
+            position: absolute;
+            left: 6px;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                var(--primary-orange), 
+                var(--secondary-orange), 
+                var(--cyan), 
+                var(--purple), 
+                var(--primary-orange));
+            box-shadow: 0 0 15px var(--primary-orange), 0 0 30px rgba(255, 122, 24, 0.5);
+            opacity: 0.8;
+        }
+
+        .conduit-node {
+            position: absolute;
+            left: -2px;
+            width: 20px;
+            height: 20px;
+            background: var(--black-chrome);
+            border: 2px solid var(--primary-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--primary-orange);
+            transform: translateY(-50%);
+            transition: top 0.1s ease-out;
+        }
+
+        .conduit-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--secondary-orange);
+            animation: nodePulse 2s infinite ease-in-out;
+        }
+
+        @keyframes nodePulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        /* ==========================================================================
+           4. GLOBAL CHAMBER MODULE ARCHITECTURE
+           ========================================================================== */
+        .factory-chamber {
+            position: relative;
+            min-height: 100vh;
+            width: 100vw;
             display: flex;
-            gap: 28px;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 4% 100px 15%;
+            z-index: 4;
+            perspective: 2000px;
         }
 
-        nav a {
-            color: #b6f9ff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: 0.25s;
-            backdrop-filter: blur(4px);
-            padding: 6px 12px;
-            border-radius: 40px;
-        }
-
-        nav a:hover {
-            color: #ff66ff;
-            text-shadow: 0 0 10px #ff44f0;
-            background: rgba(255, 68, 240, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 24px 70px;
+        .hologram-panel {
+            background: var(--glass-panel);
+            border: 1px solid var(--glass-border);
+            border-top: 3px solid var(--primary-orange);
+            border-bottom: 3px solid var(--cyan);
+            border-radius: 20px;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 50px;
+            width: 100%;
+            max-width: 1100px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255,255,255,0.05);
+            transform: translateY(100px) rotateX(10deg);
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.1, 1, 0.1, 1);
             position: relative;
         }
 
-        /* 🔥 BRAND NEW GIF CHANGED — futuristic coding interface loop */
-        .hero-gif {
-            width: 340px;
-            max-width: 85%;
-            border-radius: 32px;
-            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.4), 0 0 0 2px rgba(0,229,255,0.4);
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            margin-bottom: 20px;
-            background: #03061a;
+        .hologram-panel.active {
+            transform: translateY(0) rotateX(0deg);
+            opacity: 1;
         }
 
-        .hero-gif:hover {
-            transform: scale(1.02) rotate(0.5deg);
-            box-shadow: 0 0 55px #ff44f0aa;
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #00ffff, #ff55ff, #aa66ff, #00e0ff);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 20px 0 12px;
-            letter-spacing: -1px;
-            animation: gradientFlow 5s ease infinite;
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #cddcff;
-            background: rgba(0,0,0,0.4);
-            display: inline-block;
-            padding: 8px 24px;
-            border-radius: 60px;
-            backdrop-filter: blur(8px);
-            font-weight: 500;
-        }
-
-        .glass {
-            width: 88%;
-            max-width: 1280px;
-            margin: 40px auto;
-            padding: 32px 36px;
-            background: rgba(15, 25, 45, 0.55);
-            border: 1px solid rgba(0, 229, 255, 0.3);
-            backdrop-filter: blur(16px);
-            border-radius: 40px;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.4), 0 0 15px rgba(0,229,255,0.2);
-            transition: all 0.3s;
-        }
-
-        .glass:hover {
-            border-color: #ff55ff80;
-            box-shadow: 0 0 28px #ff44f030;
-        }
-
-        .glass p {
-            line-height: 1.65;
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: #eef3ff;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            margin-top: 28px;
-        }
-
-        .card {
-            padding: 28px 22px;
-            border-radius: 28px;
-            background: linear-gradient(145deg, rgba(0,229,255,0.08), rgba(255,68,240,0.05));
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            cursor: default;
-            backdrop-filter: blur(4px);
-        }
-
-        .card h3 {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            background: linear-gradient(120deg, #fff, #b6f0ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            color: #cbd5ff;
-            line-height: 1.5;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            background: linear-gradient(135deg, #00e5ff18, #ff44f020);
-            border-color: #ff66ffaa;
-            box-shadow: 0 20px 35px -12px #ff44f060, 0 0 0 1px rgba(255, 68, 255, 0.4);
-        }
-
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.9rem;
-            font-weight: 600;
-            background: linear-gradient(115deg, #7ceeff, #ffaaff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            letter-spacing: -0.3px;
-            border-left: 4px solid #00e5ff;
-            padding-left: 20px;
-        }
-
-        .skill-pills {
+        /* Chamber Aesthetics */
+        .panel-hud-header {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            right: 25px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        .skill-pills span {
-            background: rgba(0, 229, 255, 0.15);
-            padding: 8px 18px;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
-            border: 0.5px solid rgba(0,229,255,0.5);
-            transition: 0.2s;
-        }
-        .skill-pills span:hover {
-            background: rgba(255, 68, 240, 0.3);
-            border-color: #ff44f0;
-            transform: scale(1.02);
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--cyan);
+            letter-spacing: 2px;
+            opacity: 0.6;
         }
 
-        .contact-links {
+        .chamber-title {
+            font-family: var(--font-head);
+            font-weight: 900;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, var(--white) 40%, var(--secondary-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px var(--orange-glow-30);
+        }
+
+        /* ==========================================================================
+           5. SYSTEM BOOT ENGINE (HERO CHAMBER)
+           ========================================================================== */
+        #boot-chamber {
+            padding: 0;
+            flex-direction: column;
+            background: radial-gradient(circle at center, rgba(255, 122, 24, 0.05) 0%, transparent 70%);
+        }
+
+        .master-reactor-core {
+            position: relative;
+            width: 360px;
+            height: 360px;
+            background: var(--black-chrome);
+            border: 6px solid #141b29;
+            border-radius: 50%;
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: flex-start;
-            margin: 20px 0 10px;
-        }
-        .contact-links p {
-            background: rgba(0,0,0,0.4);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-family: monospace;
-            font-weight: 500;
-            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(0,0,0,0.9), inset 0 0 40px rgba(0, 234, 255, 0.15);
+            margin-bottom: 50px;
         }
 
-        /* responsive magic */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; letter-spacing: -0.5px; }
-            nav { flex-direction: row; justify-content: space-between; }
-            .glass { padding: 24px 20px; width: 92%; }
-            h2 { font-size: 1.6rem; padding-left: 12px; }
-            .hero-gif { width: 260px; }
-            .hero { padding: 40px 16px; }
-            .contact-links p { font-size: 0.8rem; padding: 6px 14px; }
+        .glowing-energy-heart {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--secondary-orange) 0%, var(--primary-orange) 60%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--primary-orange), 0 0 100px var(--primary-orange);
+            animation: corePulse 2.5s infinite ease-in-out;
         }
 
-        @media (max-width: 540px) {
-            nav { flex-direction: column; align-items: center; text-align: center; }
-            nav div { justify-content: center; }
-            .grid { grid-template-columns: 1fr; gap: 18px; }
-            h1 { font-size: 1.8rem; }
-            .glass p { font-size: 0.95rem; }
+        @keyframes corePulse {
+            0%, 100% { transform: scale(0.92); opacity: 0.85; filter: brightness(1); }
+            50% { transform: scale(1.08); opacity: 1; filter: brightness(1.3); }
         }
 
-        /* fade-in animation */
-        .glass, .card {
-            animation: fadeUp 0.6s ease backwards;
+        .reactor-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px dashed var(--cyan);
+            opacity: 0.6;
         }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        .reactor-ring.r-out {
+            width: 300px;
+            height: 300px;
+            animation: rotateCW 25s linear infinite;
         }
-        .card:nth-child(1) { animation-delay: 0.02s; }
-        .card:nth-child(2) { animation-delay: 0.06s; }
-        .card:nth-child(3) { animation-delay: 0.1s; }
-        .card:nth-child(4) { animation-delay: 0.14s; }
-        .card:nth-child(5) { animation-delay: 0.18s; }
-        .card:nth-child(6) { animation-delay: 0.22s; }
-        
-        ::selection {
-            background: #ff44f0aa;
-            color: #010101;
+
+        .reactor-ring.r-in {
+            width: 220px;
+            height: 220px;
+            border: 2px dotted var(--purple);
+            animation: rotateCCW 18s linear infinite;
         }
-        footer {
+
+        @keyframes rotateCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes rotateCCW { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+        .boot-title-terminal {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: var(--white);
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.4);
+        }
+
+        .boot-progress-enclosure {
+            width: 350px;
+            height: 12px;
+            background: rgba(0,0,0,0.7);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 2px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .boot-progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+            border-radius: 30px;
+            box-shadow: 0 0 20px var(--primary-orange);
+            transition: width 0.08s linear;
+        }
+
+        .boot-log-readout {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--cyan);
+            letter-spacing: 1px;
+            height: 20px;
+        }
+
+        .dynamic-reveal-payload {
             text-align: center;
-            padding: 2rem 1rem 2.5rem;
-            font-size: 0.75rem;
-            opacity: 0.7;
-            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.1, 1, 0.1, 1);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .dynamic-reveal-payload.visible {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .factory-identity {
+            font-family: var(--font-head);
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            background: linear-gradient(to right, #fff, var(--secondary-orange), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 40px rgba(255, 122, 24, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .cycle-roles-container {
+            font-family: var(--font-sub);
+            font-size: 2rem;
+            color: var(--cyan);
+            font-weight: 600;
+            letter-spacing: 4px;
+            height: 40px;
+            text-shadow: 0 0 15px var(--cyan-glow-20);
+        }
+
+        /* ==========================================================================
+           6. PROFILE SCAN CAPSULE SYSTEM
+           ========================================================================== */
+        .profile-matrix-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .capsule-assembly {
+            position: relative;
+            width: 340px;
+            height: 340px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-capsule-rim {
+            position: absolute;
+            inset: 0;
+            border: 4px solid var(--glass-border);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 30px var(--orange-glow-10);
+        }
+
+        .profile-photo-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(255,255,255,0.1);
+            background: var(--black-chrome);
+        }
+
+        .profile-photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .capsule-assembly:hover .profile-photo-container img {
+            transform: scale(1.08) rotate(2deg);
+        }
+
+        /* Fallback Graphic Avatar */
+        .fallback-avatar {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #131924 0%, #080c14 100%);
+            color: var(--primary-orange);
+            font-family: var(--font-head);
+            font-weight: 900;
+            font-size: 4rem;
+        }
+        .fallback-avatar span {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--cyan);
+            margin-top: 10px;
+        }
+
+        .scanner-laser-beam {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            box-shadow: 0 0 15px var(--cyan), 0 0 30px var(--cyan);
+            animation: scanMotion 4s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes scanMotion {
+            0%, 100% { top: 10%; opacity: 0.3; }
+            50% { top: 90%; opacity: 1; }
+        }
+
+        .capsule-ring-accent {
+            position: absolute;
+            inset: -15px;
+            border: 2px dashed var(--primary-orange);
+            border-radius: 50%;
+            animation: rotateCW 40s linear infinite;
+            opacity: 0.4;
+        }
+
+        .metadata-dashboard {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .meta-datum-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .meta-label {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .meta-payload {
+            font-family: var(--font-sub);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* ==========================================================================
+           7. INDUSTRIAL EDUCATION CHAMBER
+           ========================================================================== */
+        .edu-reactor-structure {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(90deg, rgba(255,122,24,0.03), transparent);
+            border-left: 4px solid var(--primary-orange);
+            padding: 35px;
+            border-radius: 0 16px 16px 0;
+            position: relative;
+        }
+
+        .edu-glass-cube {
+            width: 90px;
+            height: 90px;
+            background: var(--black-chrome);
+            border: 2px solid var(--primary-orange);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            box-shadow: 0 0 25px var(--orange-glow-30);
+            flex-shrink: 0;
+        }
+
+        .edu-degree {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .edu-inst {
+            font-family: var(--font-sub);
+            font-size: 1.4rem;
+            color: var(--cyan);
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           8. JAVA REACTOR ENGINE
+           ========================================================================== */
+        .engine-grid-matrix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .hologram-tech-card {
+            background: rgba(255, 122, 24, 0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .hologram-tech-card:hover {
+            transform: translateZ(30px) translateY(-5px);
+            background: rgba(255, 122, 24, 0.06);
+            border-color: var(--primary-orange);
+            box-shadow: 0 20px 40px rgba(255, 122, 24, 0.15);
+        }
+
+        .hologram-tech-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-orange);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .hologram-tech-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tech-card-title {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .tech-card-desc {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           9. DATABASE MATRIX & STREAM SYSTEM
+           ========================================================================== */
+        .db-topology-enclosure {
+            position: relative;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .db-node-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            height: 120px;
+            z-index: 2;
+        }
+
+        .topology-node {
+            background: var(--black-chrome);
+            border: 2px solid var(--cyan);
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-head);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--cyan);
+            box-shadow: 0 0 30px var(--cyan-glow-20);
+            text-transform: uppercase;
+        }
+
+        .topology-vector-pipe {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--purple), var(--cyan));
+            z-index: 1;
+            transform: translateY(-50%);
+        }
+
+        .topology-packet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--white), 0 0 30px var(--cyan);
+            animation: pushPacket 4s infinite linear;
+        }
+
+        @keyframes pushPacket {
+            0% { left: 10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { left: 90%; opacity: 0; }
+        }
+
+        /* ==========================================================================
+           10. MERN MANUFACTURING CONVEYOR FACTORY
+           ========================================================================== */
+        .conveyor-belt-system {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 10px 40px;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+        }
+
+        .conveyor-belt-system::-webkit-scrollbar {
+            display: none;
+        }
+
+        .conveyor-asset-card {
+            flex: 0 0 380px;
+            background: var(--black-chrome);
+            border: 1px solid var(--glass-border);
+            border-left: 5px solid var(--cyan);
+            border-radius: 14px;
+            padding: 35px;
+            scroll-snap-align: start;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .conveyor-asset-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--cyan);
+            box-shadow: 0 35px 60px rgba(0, 234, 255, 0.15);
+        }
+
+        .asset-telemetry-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            background: rgba(0, 234, 255, 0.08);
+            color: var(--cyan);
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 234, 255, 0.2);
+            letter-spacing: 1px;
+        }
+
+        .asset-progress-metrics {
+            margin-top: 25px;
+        }
+
+        .metrics-label-group {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-sub);
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 8px;
+        }
+
+        .mini-progress-track {
+            height: 6px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .mini-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            border-radius: 4px;
+        }
+
+        /* ==========================================================================
+           11. SKILLS ASSEMBLY INTEGRATION LINE
+           ========================================================================== */
+        .assembly-matrix-mesh {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .silicon-microchip {
+            background: rgba(255,255,255,0.01);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 24px 15px;
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .silicon-microchip:hover {
+            background: var(--black-chrome);
+            color: var(--cyan);
+            border-color: var(--cyan);
+            box-shadow: 0 0 25px rgba(0, 234, 255, 0.35);
+            transform: scale(1.08) translateY(-3px);
+        }
+
+        /* ==========================================================================
+           12. FUTURE AI RESEARCH LAB
+           ========================================================================== */
+        .lab-reactor-enclosure {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .kinetic-ring-machine {
+            position: relative;
+            width: 260px;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .kinetic-center-core {
+            width: 70px;
+            height: 70px;
+            background: var(--purple);
+            border-radius: 50%;
+            box-shadow: 0 0 50px var(--purple), 0 0 100px var(--purple);
+            z-index: 3;
+        }
+
+        .kinetic-loop {
+            position: absolute;
+            border: 2px solid transparent;
+            border-radius: 50%;
+        }
+
+        .kinetic-loop.loop-primary {
+            width: 140px;
+            height: 140px;
+            border-top-color: var(--cyan);
+            border-bottom-color: var(--cyan);
+            animation: rotateCW 5s linear infinite;
+        }
+
+        .kinetic-loop.loop-secondary {
+            width: 200px;
+            height: 200px;
+            border-left-color: var(--primary-orange);
+            border-right-color: var(--primary-orange);
+            animation: rotateCCW 8s linear infinite;
+        }
+
+        .lab-grid-deployment {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .lab-deployment-box {
+            background: rgba(139, 92, 246, 0.03);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            border-radius: 12px;
+            padding: 22px;
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            color: var(--white);
+            text-align: center;
+            letter-spacing: 1px;
+            transition: border-color 0.3s;
+        }
+
+        .lab-deployment-box:hover {
+            border-color: var(--purple);
+        }
+
+        /* ==========================================================================
+           13. CONTACT INTELLIGENT TERMINAL
+           ========================================================================== */
+        .io-terminal-deck {
+            background: #020409;
+            border: 2px solid #121824;
+            border-radius: 12px;
+            font-family: var(--font-mono);
+            padding: 35px;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.9);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .io-terminal-deck::before {
+            content: 'SYSTEM CONSOLE';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary-orange);
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 10px;
+            border-radius: 3px;
+        }
+
+        .terminal-code-row {
+            margin-bottom: 14px;
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .terminal-code-row span.token {
+            color: var(--secondary-orange);
+        }
+
+        .console-interactive-deck {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .console-trigger-btn {
+            flex: 1;
+            min-width: 220px;
+            background: transparent;
+            border: 1px solid var(--primary-orange);
+            padding: 18px 35px;
+            border-radius: 6px;
+            font-family: var(--font-head);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 0 15px rgba(255, 122, 24, 0.05);
+        }
+
+        .console-trigger-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 122, 24, 0.15), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .console-trigger-btn:hover::before {
+            left: 100%;
+        }
+
+        .console-trigger-btn:hover {
+            background: var(--primary-orange);
+            color: #050816;
+            box-shadow: 0 0 35px var(--primary-orange);
+            transform: translateY(-3px);
+        }
+
+        .console-trigger-btn.cyan-deck-variant {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            box-shadow: inset 0 0 15px rgba(0, 234, 255, 0.05);
+        }
+
+        .console-trigger-btn.cyan-deck-variant:hover {
+            background: var(--cyan);
+            color: #050816;
+            box-shadow: 0 0 35px var(--cyan);
+        }
+
+        /* ==========================================================================
+           14. FIXED SIDE HUD PANEL (APPLE VISION INSPIRED)
+           ========================================================================== */
+        #fixed-hud-telemetry {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            background: rgba(13, 17, 26, 0.45);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 25px 20px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            width: 200px;
+        }
+
+        .hud-metric-row {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hud-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hud-value {
+            font-family: var(--font-sub);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .hud-progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .hud-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--primary-orange);
+            transition: width 0.1s ease-out;
+        }
+
+        /* ==========================================================================
+           15. ULTRALIGHT RESPONSIVE ENGINE
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            #fixed-hud-telemetry {
+                display: none; /* Safely remove asset overload on low viewport metrics */
+            }
+            .profile-matrix-grid, .lab-reactor-enclosure {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .factory-chamber {
+                padding-left: 8%;
+                padding-right: 4%;
+            }
+            #master-conduit-container {
+                left: 3%;
+            }
+            .factory-identity {
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hologram-panel {
+                padding: 35px 20px;
+            }
+            .chamber-title {
+                font-size: 2rem;
+            }
+            .edu-degree {
+                font-size: 1.6rem;
+            }
+            .lab-grid-deployment {
+                grid-template-columns: 1fr;
+            }
+            .conveyor-asset-card {
+                flex: 0 0 300px;
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="bg"></div>
+    <div id="ambient-grid"></div>
+    <canvas id="systems-canvas"></canvas>
 
-<nav>
-    <h2>✦ LOHITH V ✦</h2>
-    <div>
-        <a href="https://github.com/lokisknok" target="_blank" rel="noopener">⌨️ GITHUB</a>
-        <a href="mailto:lohithv0126@gmail.com">✉️ EMAIL</a>
-    </div>
-</nav>
-
-<section class="hero">
-    <!-- 🎯 GIF CHANGED: new high-quality coding animation (developer at work with neon aesthetic) -->
-    <img class="hero-gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGxqNmp1dG5hMm94YjFvNDRkM2JnYjlqbTU0NXRvN2E0M2RteWU1OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26tn33aiTi1jkl6H6/giphy.gif" alt="Lohith V coding future | developer at work">
-    <h1>MERN STACK DEVELOPER</h1>
-    <p>⚡ BCA Graduate • Java Developer • Full Stack Builder ⚡</p>
-</section>
-
-<section class="glass">
-    <h2>✨ About Me — The Code Vibe</h2>
-    <p>BCA Graduate from Bharathiar University. I'm a passionate full-stack engineer crafting high-performance web applications using MERN Stack, Java, C++, MongoDB, MySQL, and modern frontend tools. When I'm not architecting databases or debugging micro-services, you'll find me exploring Tamil literature, hitting fitness goals, cooking experimental meals, and building software that truly matters. Let's create elegant solutions with an edge.</p>
-</section>
-
-<section class="glass">
-    <h2>🚀 Projects That Define Me</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>📖 Dictionary Web App</h3>
-            <p>Real-time dictionary with phonetic search, synonyms, and modern UI — powered by Fetch API and word database integration.</p>
-        </div>
-        <div class="card">
-            <h3>🌐 MERN Full Stack App</h3>
-            <p>Authentication, CRUD operations, JWT tokens, real-time dashboard — complete MERN experience with responsive frontend.</p>
-        </div>
-        <div class="card">
-            <h3>🗄️ Java JDBC System</h3>
-            <p>Robust database connector with transaction management, MySQL integration and optimized query execution for enterprise.</p>
-        </div>
-        <div class="card">
-            <h3>🎓 Student Management System</h3>
-            <p>Full-featured platform handling student records, grading analytics, role-based access and attendance tracking.</p>
-        </div>
-        <div class="card">
-            <h3>🖥️ Portfolio Website</h3>
-            <p>Immersive developer portfolio with glassmorphism, dynamic gradients and futuristic UI/UX — this very site!</p>
-        </div>
-        <div class="card">
-            <h3>☁️ Future SaaS Projects</h3>
-            <p>Building next-gen cloud platforms, AI-enhanced dashboards and subscription-based tools — launching soon.</p>
+    <div id="master-conduit-container">
+        <div class="conduit-pipe"></div>
+        <div class="conduit-node" id="global-conduit-node">
+            <div class="conduit-pulse"></div>
         </div>
     </div>
-</section>
 
-<section class="glass">
-    <h2>🧰 Skills & Tech Arsenal</h2>
-    <div class="skill-pills">
-        <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
-        <span>Java (Core & JDBC)</span><span>C++</span><span>MySQL</span><span>GitHub</span>
-        <span>HTML5</span><span>CSS3</span><span>JavaScript (ES6+)</span><span>REST APIs</span>
-        <span>Python</span><span>Streamlit</span><span>Tailwind CSS</span><span>Firebase</span>
+    <div id="fixed-hud-telemetry">
+        <div class="hud-metric-row">
+            <span class="hud-label">CURRENT UNIT</span>
+            <span class="hud-value" id="hud-current-section">BOOT_CORE</span>
+        </div>
+        <div class="hud-metric-row">
+            <span class="hud-label">FACTORY OUTPUT</span>
+            <div class="hud-progress-container">
+                <div class="hud-progress-fill" id="hud-scroll-fill"></div>
+            </div>
+        </div>
+        <div class="hud-metric-row">
+            <span class="hud-label">TELEMETRY</span>
+            <span class="hud-value" style="color: #10b981;">SYS_ONLINE</span>
+        </div>
     </div>
-    <p style="margin-top: 20px;">💡 Always expanding: currently exploring Next.js, TypeScript, and cloud deployment (AWS).</p>
-</section>
 
-<section class="glass">
-    <h2>📬 Contact & Collab</h2>
-    <div class="contact-links">
-        <p>📧 lohithv0126@gmail.com</p>
-        <p>💻 github.com/lokisknok</p>
-        <p>✨ Let's build the future together</p>
-    </div>
-    <p style="margin-top: 12px;">Open for freelance, open-source contributions, and innovative full-stack collaborations. Hit me up!</p>
-</section>
+    <section class="factory-chamber" id="boot" style="padding-left: 0; padding-right: 0;">
+        <div class="master-reactor-core" id="core-reactor-graphic">
+            <div class="glowing-energy-heart"></div>
+            <div class="reactor-ring r-out"></div>
+            <div class="reactor-ring r-in"></div>
+        </div>
+        
+        <div id="boot-control-panel" style="text-align: center;">
+            <div class="boot-title-terminal" id="boot-text-node">BOOTING LOHITH.EXE</div>
+            <div class="boot-progress-enclosure">
+                <div class="boot-progress-fill" id="boot-progress-element"></div>
+            </div>
+            <div class="boot-log-readout" id="boot-readout-element">Initializing Core Systems...</div>
+        </div>
 
-<footer>
-    <p>© 2026 Lohith V — Cybernetic Portfolio | MERN Artist · Code. Create. Elevate.</p>
-</footer>
+        <div class="dynamic-reveal-payload" id="payload-identity-block">
+            <h1 class="factory-identity">LOHITH V</h1>
+            <div class="cycle-roles-container" id="cycle-roles-target">MERN STACK DEVELOPER</div>
+        </div>
+    </section>
 
+    <section class="factory-chamber" id="profile">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 02</span>
+                <span>SEC_STATUS // IDENTIFIED</span>
+            </div>
+            <h2 class="chamber-title">Profile Scan Chamber</h2>
+            
+            <div class="profile-matrix-grid">
+                <div class="capsule-assembly">
+                    <div class="glass-capsule-rim"></div>
+                    <div class="capsule-ring-accent"></div>
+                    <div class="scanner-laser-beam"></div>
+                    <div class="profile-photo-container">
+                        <img src="images/lohith.jpg" alt="Lohith V" onerror="this.style.display='none'; document.getElementById('fallback-avatar-block').style.display='flex';">
+                        <div class="fallback-avatar" id="fallback-avatar-block" style="display:none;">
+                            LV
+                            <span>NO_IMG_SRC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metadata-dashboard">
+                    <div class="meta-datum-box">
+                        <div class="meta-label">IDENTIFIER</div>
+                        <div class="meta-payload">LOHITH V</div>
+                    </div>
+                    <div class="meta-datum-box">
+                        <div class="meta-label">PRIMARY DISCIPLINE</div>
+                        <div class="meta-payload">MERN ARCHITECT</div>
+                    </div>
+                    <div class="meta-datum-box">
+                        <div class="meta-label">SECTOR REGION</div>
+                        <div class="meta-payload">INDIA</div>
+                    </div>
+                    <div class="meta-datum-box">
+                        <div class="meta-label">OPERATIONAL STATUS</div>
+                        <div class="meta-payload" style="color: var(--cyan);">ACTIVE // 2026</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="education">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 03</span>
+                <span>DATA_MATRIX // RECOVERY</span>
+            </div>
+            <h2 class="chamber-title">Education Chamber</h2>
+            
+            <div class="edu-reactor-structure">
+                <div class="edu-glass-cube">BCA</div>
+                <div>
+                    <div class="edu-degree">BCA Graduate</div>
+                    <div class="edu-inst">Bharathiar University</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="java-engine">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 04</span>
+                <span>COMPUTE_CORE // RUNNING</span>
+            </div>
+            <h2 class="chamber-title">Java Reactor Engine</h2>
+            
+            <div class="engine-grid-matrix">
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">Java Architecture</div>
+                    <div class="tech-card-desc">Advanced application structuring, platform portability mapping, and compilation methodologies.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">JDBC Pipeline</div>
+                    <div class="tech-card-desc">Designing robust transactional bridges between operational runtime platforms and native datasets.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">MySQL Engine</div>
+                    <div class="tech-card-desc">Relational entity logic tracking, structured indexing matrices, and execution speed engineering.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">OOP Paradigm</div>
+                    <div class="tech-card-desc">Absolute polymorphism, secure structural data encapsulation, and abstraction frameworks.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">Collections Array</div>
+                    <div class="tech-card-desc">Complex linear structures memory allocation mapping and custom algorithm performance integration.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">Multithreading</div>
+                    <div class="tech-card-desc">Asynchronous concurrent parallel threads operations monitoring and lifecycle load safety management.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="database-matrix">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 05</span>
+                <span>STORAGE_FAB // OPTIMIZED</span>
+            </div>
+            <h2 class="chamber-title">Database Matrix Grid</h2>
+            
+            <div class="db-topology-enclosure">
+                <div class="db-node-row">
+                    <div class="topology-node">MongoDB</div>
+                    <div class="topology-vector-pipe">
+                        <div class="topology-packet"></div>
+                    </div>
+                    <div class="topology-node">MySQL</div>
+                </div>
+            </div>
+
+            <div class="engine-grid-matrix">
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">Schema Architecture</div>
+                    <div class="tech-card-desc">Deploying robust structural blueprints targeting extreme non-relational query performance and absolute normalization models.</div>
+                </div>
+                <div class="hologram-tech-card">
+                    <div class="tech-card-title">API Routing Fabrics</div>
+                    <div class="tech-card-desc">Designing ultra-low latency server communications gateways to seamlessly fetch database state arrays.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="mern-factory">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 06</span>
+                <span>PRODUCTION_LINE // DISTRIBUTED</span>
+            </div>
+            <h2 class="chamber-title">MERN Manufacturing Line</h2>
+            
+            <div class="conveyor-belt-system">
+                <div class="conveyor-asset-card">
+                    <span class="asset-telemetry-tag">PROD_REF // 001</span>
+                    <div class="tech-card-title">Dictionary Web App</div>
+                    <div class="tech-card-desc">Asynchronous pipeline application parsing live lexical arrays across dedicated endpoint definitions.</div>
+                    <div class="asset-progress-metrics">
+                        <div class="metrics-label-group"><span>INTEGRATION LEVEL</span><span>100%</span></div>
+                        <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="conveyor-asset-card">
+                    <span class="asset-telemetry-tag">PROD_REF // 002</span>
+                    <div class="tech-card-title">Student Management System</div>
+                    <div class="tech-card-desc">Industrial structural tracker platform architected for handling transactional data layers in education modules.</div>
+                    <div class="asset-progress-metrics">
+                        <div class="metrics-label-group"><span>INTEGRATION LEVEL</span><span>100%</span></div>
+                        <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="conveyor-asset-card">
+                    <span class="asset-telemetry-tag">PROD_REF // 003</span>
+                    <div class="tech-card-title">Portfolio Engine</div>
+                    <div class="tech-card-desc">Prismatic responsive cybernetic machine layout engineered for premium professional branding presentation.</div>
+                    <div class="asset-progress-metrics">
+                        <div class="metrics-label-group"><span>INTEGRATION LEVEL</span><span>100%</span></div>
+                        <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="conveyor-asset-card">
+                    <span class="asset-telemetry-tag">PROD_REF // 004</span>
+                    <div class="tech-card-title">MERN Dashboard Matrix</div>
+                    <div class="tech-card-desc">Full spectrum data analytical engine rendering token-protected administrative interface systems.</div>
+                    <div class="asset-progress-metrics">
+                        <div class="metrics-label-group"><span>INTEGRATION LEVEL</span><span>100%</span></div>
+                        <div class="mini-progress-track"><div class="mini-progress-fill" style="width: 100%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="assembly-line">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 07</span>
+                <span>MESH_ARRAY // VERIFIED</span>
+            </div>
+            <h2 class="chamber-title">Skills Assembly Matrix</h2>
+            
+            <div class="assembly-matrix-mesh">
+                <div class="silicon-microchip">React.js</div>
+                <div class="silicon-microchip">Node.js</div>
+                <div class="silicon-microchip">Express.js</div>
+                <div class="silicon-microchip">MongoDB</div>
+                <div class="silicon-microchip">JavaScript</div>
+                <div class="silicon-microchip">HTML5</div>
+                <div class="silicon-microchip">CSS3</div>
+                <div class="silicon-microchip">Python</div>
+                <div class="silicon-microchip">Firebase</div>
+                <div class="silicon-microchip">GitHub</div>
+                <div class="silicon-microchip">REST API</div>
+                <div class="silicon-microchip">Responsive Design</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="future-lab">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 08</span>
+                <span>R&D_MATRIX // FORWARD_LOOKING</span>
+            </div>
+            <h2 class="chamber-title">Future AI Research Lab</h2>
+            
+            <div class="lab-reactor-enclosure">
+                <div class="kinetic-ring-machine">
+                    <div class="kinetic-center-core"></div>
+                    <div class="kinetic-loop loop-primary"></div>
+                    <div class="kinetic-loop loop-secondary"></div>
+                </div>
+
+                <div class="lab-grid-deployment">
+                    <div class="lab-deployment-box">AI SaaS Platforms</div>
+                    <div class="lab-deployment-box">Cloud Native Infrastructure</div>
+                    <div class="lab-deployment-box">Next.js Frameworks</div>
+                    <div class="lab-deployment-box">TypeScript Compilations</div>
+                    <div class="lab-deployment-box">AWS Orchestration</div>
+                    <div class="lab-deployment-box">Automation Systems</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="factory-chamber" id="contact">
+        <div class="hologram-panel">
+            <div class="panel-hud-header">
+                <span>UNIT // 09</span>
+                <span>UPLINK // SECURE_CHANNEL</span>
+            </div>
+            <h2 class="chamber-title">Establish Communications</h2>
+            
+            <div class="io-terminal-deck">
+                <div class="terminal-code-row">&gt; INITIALIZING ENCRYPTED COMMS BACKBONE...</div>
+                <div class="terminal-code-row">&gt; <span class="token">SECURE_MAIL:</span> lohithv0126@gmail.com</div>
+                <div class="terminal-code-row">&gt; <span class="token">DEVELOPER_MATRIX:</span> github.com/lokisknok</div>
+                <div class="terminal-code-row">&gt; <span class="token">COLLAB_STATUS:</span> READY_FOR_DEPLOYMENT_TASKS</div>
+            </div>
+
+            <div class="console-interactive-deck">
+                <a href="mailto:lohithv0126@gmail.com" class="console-trigger-btn">Initialize Email Sync</a>
+                <a href="https://github.com/lokisknok" target="_blank" class="console-trigger-btn cyan-deck-variant">Open GitHub Matrix</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- A. BOOT SEQUENCER MACHINE CONFIGURATION ---
+        window.addEventListener("DOMContentLoaded", () => {
+            const progressFill = document.getElementById("boot-progress-element");
+            const logReadout = document.getElementById("boot-readout-element");
+            const bootControlDeck = document.getElementById("boot-control-panel");
+            const coreReactorGraphic = document.getElementById("core-reactor-graphic");
+            const payloadIdentityBlock = document.getElementById("payload-identity-block");
+
+            const deploymentLogs = [
+                "Initializing Structural Machine Core...",
+                "Mapping Neural Workspace Vectors...",
+                "Compiling Developer Asset Directories...",
+                "Deploying Grid Networks & Timelines...",
+                "LOHITH.EXE Manufacturing Pipeline Complete."
+            ];
+
+            let countStep = 0;
+            const bootTimer = setInterval(() => {
+                countStep += 1;
+                progressFill.style.width = `${countStep}%`;
+
+                if (countStep === 20) logReadout.innerText = deploymentLogs[0];
+                if (countStep === 45) logReadout.innerText = deploymentLogs[1];
+                if (countStep === 65) logReadout.innerText = deploymentLogs[2];
+                if (countStep === 85) logReadout.innerText = deploymentLogs[3];
+
+                if (countStep >= 100) {
+                    clearInterval(bootTimer);
+                    logReadout.innerText = deploymentLogs[4];
+                    setTimeout(() => {
+                        bootControlDeck.style.display = "none";
+                        coreReactorGraphic.style.display = "none";
+                        payloadIdentityBlock.classList.add("visible");
+                        initializeRoleCycler();
+                    }, 600);
+                }
+            }, 25);
+        });
+
+        // --- B. ROLE STRING MANIPULATION ARCHITECTURE ---
+        function initializeRoleCycler() {
+            const engineeringRoles = ["MERN STACK DEVELOPER", "JAVA DEVELOPER", "FULL STACK ENGINEER"];
+            const targetContainer = document.getElementById("cycle-roles-target");
+            let listPointer = 0;
+
+            setInterval(() => {
+                listPointer = (listPointer + 1) % engineeringRoles.length;
+                targetContainer.style.opacity = "0";
+                setTimeout(() => {
+                    targetContainer.innerText = engineeringRoles[listPointer];
+                    targetContainer.style.opacity = "1";
+                }, 300);
+            }, 3000);
+        }
+
+        // --- C. INTERSECTION DETECTION CORE CONDUIT MESH ---
+        const structuralPanels = document.querySelectorAll(".hologram-panel");
+        const interfaceTrackerLabel = document.getElementById("hud-current-section");
+
+        const structuralObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    const targetSectionId = entry.target.closest("section").id;
+                    interfaceTrackerLabel.innerText = targetSectionId.toUpperCase() + "_CHAMBER";
+                }
+            });
+        }, { threshold: 0.2, rootMargin: "0px" });
+
+        structuralPanels.forEach(panel => structuralObserver.observe(panel));
+
+        // --- D. TIMELINE CONDUIT FLOW TRACKER ---
+        const structuralConduitNode = document.getElementById("global-conduit-node");
+        const hudScrollFill = document.getElementById("hud-scroll-fill");
+
+        window.addEventListener("scroll", () => {
+            const maxScrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const trackPercentage = (window.scrollY / maxScrollHeight) * 100;
+            
+            structuralConduitNode.style.top = `${trackPercentage}%`;
+            hudScrollFill.style.width = `${trackPercentage}%`;
+        });
+
+        // --- E. HIGH-FI LIQUID ENERGY FIELD SIMULATOR ---
+        const canvasMesh = document.getElementById("systems-canvas");
+        const renderContext = canvasMesh.getContext("2d");
+
+        function adaptCanvasBoundaries() {
+            canvasMesh.width = window.innerWidth;
+            canvasMesh.height = window.innerHeight;
+        }
+        adaptCanvasBoundaries();
+        window.addEventListener("resize", adaptCanvasBoundaries);
+
+        class QuantumEnergyNode {
+            constructor() {
+                this.generateIdentity();
+            }
+            generateIdentity() {
+                this.xPos = Math.random() * canvasMesh.width;
+                this.yPos = Math.random() * canvasMesh.height + canvasMesh.height;
+                this.nodeRadius = Math.random() * 1.5 + 0.8;
+                this.driftVelocityY = Math.random() * 1.2 + 0.4;
+                this.nodeAlpha = Math.random() * 0.4 + 0.2;
+                this.spectralColor = Math.random() > 0.4 ? '#ff7a18' : '#00eaff';
+            }
+            processMetrics() {
+                this.yPos -= this.driftVelocityY;
+                if (this.yPos < -20) {
+                    this.generateIdentity();
+                }
+            }
+            renderNode() {
+                renderContext.save();
+                renderContext.globalAlpha = this.nodeAlpha;
+                renderContext.shadowBlur = 8;
+                renderContext.shadowColor = this.spectralColor;
+                renderContext.fillStyle = this.spectralColor;
+                renderContext.beginPath();
+                renderContext.arc(this.xPos, this.yPos, this.nodeRadius, 0, Math.PI * 2);
+                renderContext.fill();
+                renderContext.restore();
+            }
+        }
+
+        const systemNodeRegistry = Array.from({ length: 40 }, () => new QuantumEnergyNode());
+
+        function primarySystemLoop() {
+            renderContext.clearRect(0, 0, canvasMesh.width, canvasMesh.height);
+            systemNodeRegistry.forEach(node => {
+                node.processMetrics();
+                node.renderNode();
+            });
+            requestAnimationFrame(primarySystemLoop);
+        }
+        primarySystemLoop();
+
+        // --- F. MATRIX STRUCTURAL COMPONENT DRIFT (PARALLAX ENGINE) ---
+        window.addEventListener("scroll", () => {
+            const calculationOffset = window.scrollY;
+            const livePanels = document.querySelectorAll(".hologram-panel.active");
+            livePanels.forEach((card, positionIndex) => {
+                const shiftScaleFactor = (positionIndex % 2 === 0) ? 12 : -12;
+                const evaluatedYPosition = (calculationOffset * 0.02) * (shiftScaleFactor * 0.1);
+                card.style.transform = `translateY(${evaluatedYPosition}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
