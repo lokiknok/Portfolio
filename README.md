@@ -5,8 +5,6 @@
 <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=25&duration=3000&pause=1000&color=4FC3F7&center=true&vCenter=true&width=900&lines=Software+Developer;MERN+Stack+Developer;Java+Developer;Open+Source+Learner;Building+Real-World+Projects" />
 
 </div>
-
-
 # 🌈 About Me
 
 ✨ **BCA Graduate** from Bharathiar University
